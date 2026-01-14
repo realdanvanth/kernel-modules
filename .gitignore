@@ -1,0 +1,21 @@
+# Kernel module build artifacts
+*.o
+*.ko
+*.mod
+*.mod.c
+*.mod.o
+
+# Kernel build system files
+.*.cmd
+modules.order
+Module.symvers
+
+# Temporary / editor files
+*~
+*.swp
+*.swo
+*.tmp
+
+# Logs / scripts output
+*.log
+
