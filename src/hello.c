@@ -3,6 +3,7 @@
 #include <linux/module.h>
 #define DEVICE "hello"
 static int major;
+static char data[256];
 static int open(struct inode *inode, struct file *filp) {
   printk("file opened\n");
   printk("major : %d minor: %d\n", imajor(inode), iminor(inode));
@@ -13,8 +14,10 @@ static int release(struct inode *, struct file *) {
   printk("file released\n");
   return 0;
 }
-static ssize_t read(struct file *, char __user *, size_t, loff_t *) {
-
+static ssize_t read(struct file *filep, char __user *user, size_t l,
+                    loff_t *off) {
+  int not_copied, delta,
+      to_copy = (len + *off) < size(text) ? len : (sizeof(text) - *off);
   return 0;
 }
 ssize_t write(struct file *, const char __user *, size_t, loff_t *) {
